@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --accent-purple: #7c3aed;
+  --accent-green: #10b981;
+  --accent-red: #ef4444;
+  --accent-yellow: #f59e0b;
+  --accent-blue: #3b82f6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Canvas grid background */
+.canvas-grid {
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Resource animations */
+.resource-enter {
+  opacity: 0;
+  transform: scale(0.5);
+  transform-origin: center;
+}
+
+.resource-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 400ms ease-out, transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.resource-building {
+  animation: pulse-build 1s ease-in-out infinite;
+}
+
+@keyframes pulse-build {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* Ghost node styling */
+.ghost-node {
+  opacity: 0.15;
+  stroke-dasharray: 8 4;
+}
+
+.ghost-node-matched {
+  opacity: 0.4;
+  stroke-dasharray: none;
+  transition: opacity 400ms ease-out;
+}
+
+/* Arrow animation */
+.arrow-draw {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-arrow 600ms ease-out forwards;
+}
+
+@keyframes draw-arrow {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Plan output styling */
+.plan-addition { color: #10b981; }
+.plan-deletion { color: #ef4444; }
+.plan-modification { color: #f59e0b; }
+.plan-info { color: #94a3b8; }
