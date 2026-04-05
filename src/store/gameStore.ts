@@ -15,8 +15,11 @@ interface GameState {
   // Persisted
   levelProgress: Record<number, LevelProgress>
 
+  showBriefingPanel: boolean
+
   // Actions
   setView: (view: GameView) => void
+  toggleBriefingPanel: () => void
   startLevel: (levelId: number) => void
   deployResource: (address: string, resource: DeployedResource) => void
   setResourceAnimationState: (address: string, state: DeployedResource['animationState']) => void
@@ -40,8 +43,11 @@ export const useGameStore = create<GameState>()(
       attempts: 0,
       lastScore: null,
       levelProgress: {},
+      showBriefingPanel: false,
 
       setView: (view) => set({ currentView: view }),
+
+      toggleBriefingPanel: () => set((s) => ({ showBriefingPanel: !s.showBriefingPanel })),
 
       startLevel: (levelId) =>
         set({
@@ -53,6 +59,7 @@ export const useGameStore = create<GameState>()(
           hintsUsed: 0,
           attempts: 0,
           lastScore: null,
+          showBriefingPanel: false,
         }),
 
       deployResource: (address, resource) =>

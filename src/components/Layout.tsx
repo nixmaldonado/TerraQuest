@@ -4,10 +4,13 @@ import { Editor } from './Editor'
 import { Canvas } from './Canvas'
 import { PlanOutput } from './PlanOutput'
 import { GameControls } from './GameControls'
+import { InlineBriefing } from './InlineBriefing'
 import { useEditorStore } from '../store/editorStore'
+import { useGameStore } from '../store/gameStore'
 
 export const Layout: React.FC = () => {
   const isPlanVisible = useEditorStore((s) => s.isPlanVisible)
+  const showBriefingPanel = useGameStore((s) => s.showBriefingPanel)
 
   return (
     <div
@@ -28,9 +31,16 @@ export const Layout: React.FC = () => {
         <Editor />
       </div>
 
-      {/* Row 2 right: Canvas */}
-      <div className="overflow-hidden canvas-grid p-4">
-        <Canvas />
+      {/* Row 2 right: Canvas or Briefing */}
+      <div className="overflow-hidden relative">
+        <div className="h-full canvas-grid p-4">
+          <Canvas />
+        </div>
+        {showBriefingPanel && (
+          <div className="absolute inset-0 z-10">
+            <InlineBriefing />
+          </div>
+        )}
       </div>
 
       {/* Row 3: PlanOutput (conditional, spans both columns) */}

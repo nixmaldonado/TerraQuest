@@ -6,6 +6,8 @@ export const TopBar: React.FC = () => {
   const currentLevel = useGameStore((s) => s.currentLevel)
   const levelProgress = useGameStore((s) => s.levelProgress)
   const setView = useGameStore((s) => s.setView)
+  const showBriefingPanel = useGameStore((s) => s.showBriefingPanel)
+  const toggleBriefingPanel = useGameStore((s) => s.toggleBriefingPanel)
 
   const level = levels.find((l) => l.id === currentLevel)
   const progress = levelProgress[currentLevel]
@@ -36,8 +38,18 @@ export const TopBar: React.FC = () => {
         </span>
       </div>
 
-      {/* Right: Progress + Stars */}
+      {/* Right: Mission Brief toggle + Progress + Stars */}
       <div className="flex items-center gap-4">
+        <button
+          onClick={toggleBriefingPanel}
+          className={`text-sm px-3 py-1 rounded transition-colors ${
+            showBriefingPanel
+              ? 'bg-purple-600 text-white'
+              : 'text-slate-400 hover:text-slate-200 hover:bg-[#334155]'
+          }`}
+        >
+          Mission Brief
+        </button>
         <span className="text-sm text-slate-400">
           Level {currentLevel}/5
         </span>
