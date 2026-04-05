@@ -27,7 +27,7 @@ export const PlanOutput: React.FC = () => {
   return (
     <div className="bg-[#0f172a] border-t border-[#334155] max-h-48 overflow-y-auto font-mono text-sm col-span-2">
       {/* Header */}
-      <div className="flex items-center justify-between px-4 py-2 border-b border-[#1e293b]">
+      <div className="flex items-center justify-between px-6 py-2 border-b border-[#1e293b]">
         <span className="text-slate-300">
           Terraform plan:{' '}
           <span className="text-emerald-400">{creates.length} to add</span>,{' '}
@@ -43,7 +43,7 @@ export const PlanOutput: React.FC = () => {
       </div>
 
       {/* Resources */}
-      <div className="px-4 py-2 space-y-2">
+      <div className="px-6 py-2 space-y-2">
         {planResult.resources.map((resource) => {
           const { symbol, color } = actionSymbol(resource.action)
           return (
@@ -73,7 +73,7 @@ export const PlanOutput: React.FC = () => {
       </div>
 
       {/* Summary */}
-      <div className="px-4 py-2 border-t border-[#1e293b] text-slate-400 text-xs">
+      <div className="px-6 py-2 border-t border-[#1e293b] text-slate-400 text-xs">
         Plan: {creates.length} to add, {modifies.length} to change, {destroys.length} to destroy.
         {planResult.isValid ? (
           <span className="text-emerald-400 ml-2">Ready to apply.</span>

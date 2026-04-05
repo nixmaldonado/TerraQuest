@@ -38,7 +38,7 @@ export const ScoreCard: React.FC = () => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
-      <div className="bg-[#1e293b] border border-[#334155] rounded-xl max-w-md w-full mx-4 p-8 shadow-2xl text-center">
+      <div className="bg-[#1e293b] border border-[#334155] rounded-xl max-w-md w-full mx-6 p-8 shadow-2xl text-center">
         {/* Header */}
         <h2 className="text-3xl font-extrabold text-emerald-400 mb-4">
           Mission Complete!

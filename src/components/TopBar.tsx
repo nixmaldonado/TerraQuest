@@ -12,7 +12,7 @@ export const TopBar: React.FC = () => {
   const stars = progress?.stars ?? 0
 
   return (
-    <div className="h-12 bg-[#1e293b] border-b border-[#334155] flex items-center justify-between px-4">
+    <div className="h-12 bg-[#1e293b] border-b border-[#334155] flex items-center justify-between px-6">
       {/* Left: Logo + Back button */}
       <div className="flex items-center gap-3">
         <span className="text-purple-400 font-bold text-lg tracking-tight">

@@ -29,7 +29,7 @@ export const Layout: React.FC = () => {
       </div>
 
       {/* Row 2 right: Canvas */}
-      <div className="overflow-hidden">
+      <div className="overflow-hidden canvas-grid p-4">
         <Canvas />
       </div>
 

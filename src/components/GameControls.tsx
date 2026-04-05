@@ -57,7 +57,7 @@ export const GameControls: React.FC = () => {
   }
 
   return (
-    <div className="h-[52px] bg-[#1e293b] border-t border-[#334155] flex items-center justify-between px-4">
+    <div className="h-[52px] bg-[#1e293b] border-t border-[#334155] flex items-center justify-between px-6">
       {/* Left: Action buttons */}
       <div className="flex items-center gap-2">
         <button

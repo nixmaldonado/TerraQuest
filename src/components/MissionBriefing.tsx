@@ -20,7 +20,7 @@ export const MissionBriefing: React.FC = () => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
-      <div className="bg-[#1e293b] border border-[#334155] rounded-xl max-w-2xl w-full mx-4 p-8 shadow-2xl">
+      <div className="bg-[#1e293b] border border-[#334155] rounded-xl max-w-2xl w-full mx-6 p-8 shadow-2xl max-h-[90vh] overflow-y-auto">
         {/* Level header */}
         <div className="mb-6">
           <div className="text-sm text-purple-400 font-semibold uppercase tracking-wider mb-1">
